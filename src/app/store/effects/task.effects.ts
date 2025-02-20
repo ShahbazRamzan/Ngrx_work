@@ -15,8 +15,6 @@ import { of } from 'rxjs';
 @Injectable()
 export class TaskEffects {
   constructor(private actions$: Actions, private taskService: TaskService) {
-    console.log('instance',this.actions$);
-    
   }
 
 

@@ -1,8 +1,7 @@
 @if (tasks.length) {
   @for (task of tasks; track $index) {
     <div class="task">
-      <h3>{{ task.title }}</h3>
-      <p>{{ task.description }}</p>
+      <h3>{{ task?.title }}</h3>
       <button (click)="updateTask(task)">Update</button>
       <button (click)="deleteTask(task.id)">Delete</button>
     </div>

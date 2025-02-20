@@ -4,11 +4,12 @@ import { Task } from './store/task.model';
 import { AppState } from './store/reducer/task.reducer';
 import { addTask, deleteTask, getTasks, updateTask } from './store/actions/task.action';
 import { Store } from '@ngrx/store';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   
@@ -18,8 +19,8 @@ export class AppComponent {
   tasks: Task[] = [];
 
   constructor(private store: Store<AppState>) {
-    this.store.select(state => state.tasks).subscribe((tasks) => {
-      this.tasks = tasks;
+    this.store.select(state => state.tasks).subscribe((res:any) => {
+      this.tasks = res.tasks;
     });
   
     this.store.dispatch(getTasks());
